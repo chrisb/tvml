@@ -1,5 +1,13 @@
 # TVML
 
+[![Build Status](https://img.shields.io/travis/chrisb/tvml/master.svg?style=flat-square)](https://travis-ci.org/chrisb/tvml)
+[![Gemnasium](https://img.shields.io/gemnasium/chrisb/tvml.svg?style=flat-square)](https://gemnasium.com/chrisb/tvml)
+[![Code Climate](https://img.shields.io/codeclimate/github/chrisb/tvml.svg?style=flat-square)](https://codeclimate.com/github/chrisb/tvml)
+[![Coverage](https://img.shields.io/coveralls/chrisb/tvml.svg?style=flat-square)](https://coveralls.io/r/chrisb/tvml)
+[![Security](https://hakiri.io/github/chrisb/tvml/master.svg)](https://hakiri.io/github/chrisb/tvml/master/shield)
+
+[![Join the chat at https://gitter.im/chrisb/tvml](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/chrisb/tvml)
+
 Provides a way of working with Apple's TVML documents, templates, and elements in an elegant and friendly Ruby-style DSL.
 
 ## Installation
