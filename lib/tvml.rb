@@ -5,6 +5,8 @@ require 'builder'
 module TVML
   extend ActiveSupport::Autoload
 
+  autoload :Document, 'TVML/document'
+
   module Element
     autoload :Base, 'TVML/element/base'
     autoload :Button, 'TVML/element/button'

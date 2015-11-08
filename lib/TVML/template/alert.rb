@@ -12,9 +12,7 @@ module TVML
       def collapse_button_list
         @buttons = buttons.map do |button|
           next button if button.is_a?(TVML::Element::Button)
-          btn = TVML::Element::Button.new
-          btn.text = button
-          btn
+          TVML::Element::Button.from_value(button)
         end
       end
 

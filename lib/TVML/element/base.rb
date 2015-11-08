@@ -41,7 +41,8 @@ module TVML
       def marshal_elements(node, *element_list)
         element_list = self.class.elements if element_list.empty?
         element_list.each do |ele|
-          node.__send__ ele, send(ele) if send(ele).present?
+          next unless send(ele).present?
+          node.__send__ ele.to_s.camelize(:lower), send(ele)
         end
       end
     end
