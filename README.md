@@ -10,6 +10,8 @@
 
 Provides a way of working with Apple's TVML documents, templates, and elements in an elegant and friendly Ruby-style DSL.
 
+The TVML gem is based on [Builder](https://github.com/jimweirich/builder). For an example of how to integrate TVML with Sinatra, check out the [tvml-example repo](https://github.com/chrisb/tvml-example).
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -28,12 +30,10 @@ Or install it yourself as:
 
 ## Usage
 
-The TVML library is based on [Builder](https://github.com/jimweirich/builder).
-
 ```ruby
 doc = TVML::Document.new
 doc.template = TVML::Template::Alert.new.tap do |alert|
-  alert.title = "Hello World"
+  alert.title       = "Hello World"
   alert.description = "How are things?"
 end
 
