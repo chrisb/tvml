@@ -1,8 +1,8 @@
 require 'bundler/setup'
 Bundler.setup
 
-require 'simplecov'
-SimpleCov.start
+require 'coveralls'
+Coveralls.wear!
 
 require 'tvml'
 
