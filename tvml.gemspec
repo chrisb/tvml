@@ -10,13 +10,14 @@ Gem::Specification.new do |spec|
   spec.email         = ["chris@shadow.io"]
 
   spec.summary       = "Ruby library for working with Apple's TVML"
-  spec.description   = "Ruby library for working with Apple's TVML"
+  spec.description   = "Ruby library for working with Apple's TVML built with Gyoku."
   spec.homepage      = 'https://github.com/chrisb/tvml'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.licenses      = %w(MIT)
 
   spec.add_dependency 'gyoku', '~> 1.0'
 
