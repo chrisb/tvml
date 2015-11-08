@@ -1,9 +1,14 @@
 require 'TVML/version'
-require 'gyoku'
 require 'active_support/all'
+require 'builder'
 
 module TVML
   extend ActiveSupport::Autoload
+
+  module Element
+    autoload :Base, 'TVML/element/base'
+    autoload :Button, 'TVML/element/button'
+  end
 
   module Template
     autoload :Base, 'TVML/template/base'
