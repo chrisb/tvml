@@ -22,28 +22,22 @@ module TVML
         new.build(&block)
       end
 
-      def initialize_builder(&block)
-        Builder::XmlMarkup.new.__send__(node_name, &block)
-      end
-
-      def build(&block)
-        if block_given?
-          initialize_builder(&block)
-        else
-          initialize_builder { |b| marshal_elements b }
+      def build(xml = nil, &_block)
+        xml ||= Builder::XmlMarkup.new(TVML::BUILDER_OPTIONS)
+        xml.__send__(node_name) do |node|
+          return yield xml if block_given?
+          self.class.elements.select { |e| send(e).present? }.each do |element_name|
+            element = send(element_name)
+            next element.build(node)                  if element.is_a?(TVML::Element::Base)
+            next element.each { |e| e.build node }    if element.respond_to?(:each)
+            next node.__send__(element_name, element) if element.respond_to?(:to_s)
+            fail "unknown element value for `#{element_name}`: #{element.inspect}"
+          end
         end
       end
 
       def to_tvml
-        @builder.to_s
-      end
-
-      def marshal_elements(node, *element_list)
-        element_list = self.class.elements if element_list.empty?
-        element_list.each do |ele|
-          next unless send(ele).present?
-          node.__send__ ele.to_s.camelize(:lower), send(ele)
-        end
+        build.to_s
       end
     end
   end

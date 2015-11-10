@@ -2,11 +2,11 @@ module TVML
   class Document
     attr_accessor :builder, :template
 
-    JS_ESCAPE_MAP	=	{ '\\' => '\\\\', '</' => '<\/', "\r\n" => '\n',
-                      "\n" => '\n', "\r" => '\n', '"' => '\\"', "'" => "\\'" }
+    JS_ESCAPE_MAP	=	{ '\\' => '\\\\', '</' => '<\/', "\r\n" => "\n",
+                      "\n" => "\n", "\r" => "\n", '"' => '\\"', "'" => "\\'" }
 
     def initialize
-      @builder = Builder::XmlMarkup.new
+      @builder = Builder::XmlMarkup.new(TVML::BUILDER_OPTIONS)
       @builder.instruct!
     end
 

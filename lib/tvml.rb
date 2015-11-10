@@ -5,11 +5,21 @@ require 'builder'
 module TVML
   extend ActiveSupport::Autoload
 
+  BUILDER_OPTIONS = { indent: 2 }
+
   autoload :Document, 'TVML/document'
 
   module Element
     autoload :Base, 'TVML/element/base'
+    autoload :CollectionElement, 'TVML/element/collection_element'
+
     autoload :Button, 'TVML/element/button'
+    autoload :Header, 'TVML/element/header'
+    autoload :ListItemLockup, 'TVML/element/list_item_lockup'
+    autoload :ImgDeck, 'TVML/element/img_deck'
+    autoload :List, 'TVML/element/list'
+    autoload :Section, 'TVML/element/section'
+    autoload :RelatedContent, 'TVML/element/related_content'
   end
 
   module Template
