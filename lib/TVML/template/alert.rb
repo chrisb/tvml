@@ -16,11 +16,9 @@ module TVML
         end
       end
 
-      def build
-        collapse_button_list
-        super do |node|
-          marshal_elements node
-          node << buttons.map(&:build).join
+      def build(xml = nil, &block)
+        super(xml) do |node|
+          buttons.each { |b| TVML::Element::Button.from_value(b).build node }
         end
       end
     end
